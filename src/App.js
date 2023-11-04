@@ -9,36 +9,38 @@ function App() {
 
   const [score, setScore] = useState(0);
   const [result, setResult] = useState("");
-  const [totalQuestion, setTotalQuestion] = useState(Data?.length);
   const [quesNumber, setQuesNumber] = useState(0);
-
+  
+  const totalQuestion =Data?.length;
+  
   //to give remark on the result
+  useEffect(() => {
   const handleResult = () => {
-    const percentage = ((score) * 100) / totalQuestion;
+    const percentage = (score) * 100/ totalQuestion;
     let review = '';
+
     if (percentage === 0) {
-      review = '......Better Luck Next Time'
+      review = '......Better Luck Next Time';
     }
     else if (percentage === 20) {
-      review = '......Keep Learning'
+      review = '......Keep Learning';
     }
     else if (percentage === 40) {
-      review = '......Try High'
+      review = '......Try High';
     }
     else if (percentage === 60) {
-      review = '......Good Going'
+      review = '......Good Going';
     }
     else if (percentage === 80) {
-      review = '......Highly Potential'
+      review = '......Highly Potential';
     } else {
-      review = `.....You Rock!!!`
+      review = `.....You Rock!!!`;
     }
-    setResult(percentage + "% " + review)
+    setResult(percentage + "% " + review);
   }
 
-  useEffect(() => {
-    handleResult()
-  }, [score])
+    handleResult();
+  }, [score, totalQuestion]);
 
 
   return (<>
@@ -58,7 +60,7 @@ function App() {
           setScore={setScore}
           setResult={setResult}
           totalQuestion={totalQuestion}
-          setTotalQuestion={setTotalQuestion}
+          // setTotalQuestion={setTotalQuestion}
           Data={Data} quesNumber={quesNumber}
           setQuesNumber={setQuesNumber}
         />

@@ -1,7 +1,7 @@
 
 import './Question.css';
 
-const Question = ({ score, setScore, setResult, totalQuestion, setTotalQuestion, Data, quesNumber, setQuesNumber }) => {
+const Question = ({ score, setScore, Data, quesNumber, setQuesNumber }) => {
 
 //to get next question
   const handleNextQues = (value) => {
